@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+</head>
+<body>
+  <h1>Users List</h1>
+
+  <ul class="users">
+  <% for(var i=0; i<users.length; i++) {%>
+    <li class="users">
+      <span><%= users[i].firstname %></span>
+      <span><%= users[i].lastname %></span>
+    </li>
+  <% } %>
+  </ul>
+
+
+
+</body>
+</html>
