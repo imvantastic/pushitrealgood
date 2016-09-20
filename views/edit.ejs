@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include head %>
+</head>
+
+<body>
+<div id="wrapper">
+<% include nav %>
+
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+  <form action="/create" method="post" accept-charset="utf-8">
+    <div class="item-new">
+      <input class="input" type="text" name="email" />
+    </div>
+  </form>
+
+<% users.forEach( function ( user ){ %>
+  <% if( user._id == current ){ %>
+  <div class="col-lg-12">
+  <% }else{ %>
+  <div class="col-lg-12">
+  <% } %>
+    <% if( user._id == current ){ %>
+    <form class="update-form" action="/update/<%= user._id %>" method="post" accept-charset="utf-8">
+      <input class="update-input" type="text" name="content" value="<%= user.email %>" />
+    </form>
+    <% }else{ %>
+    <a class="update-link" href="/edit/<%= user._id %>" title="Update this user"><%= user.email %></a>
+    <% } %>
+    <% if( user._id == current ){ %>
+    <a class="del-btn-edit" href="/delete/<%= user._id %>" title="Delete this user">Delete</a>
+    <% }else{ %>
+    <a class="del-btn" href="/delete/<%= user._id %>" title="Delete this user">Delete</a>
+    <% } %>
+  </div>
+<% }); %>
+</div>
+</div>
+</div>
+</div>
+</div>
